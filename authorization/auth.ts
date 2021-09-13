@@ -1,4 +1,5 @@
 import {getGallery} from "../gallery/get_gallery.js";
+import {log} from "util";
 
 
 //Ловит клик событие на кнопке LogIn и является точкой входа

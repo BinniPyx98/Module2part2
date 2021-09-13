@@ -54,7 +54,7 @@ function authorization(userEmail, userPassword) {
     });
 }
 function save_token(token) {
-    localStorage.setItem('tokenData', token);
+    localStorage.setItem('tokenData', JSON.stringify(token));
 }
 function server_error(error) {
     alert(error.errorMessage);

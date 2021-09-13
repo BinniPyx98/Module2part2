@@ -67,7 +67,7 @@ type GetHandler=string|{
 function getHandler(request: IncomingMessage):GetHandler {
     let regexpFindPageExpression= /page=\d/g;
     let regexpFindNumberPage = /\d/g;
-
+    console.log(request.url)
     const page = String(request.url!.match(regexpFindPageExpression)) // string "page=..."
     let pageNumber = page.match(regexpFindNumberPage)                  // number
 
@@ -98,7 +98,7 @@ async function postHandler(request: IncomingMessage) {
         authResult = checkUserAuthorizationData(JSON.parse(dataFromChunk))
     })
 
-    return JSON.stringify(authResult)
+    return  JSON.stringify(authResult)
 }
 
 

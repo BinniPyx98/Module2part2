@@ -10,7 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 //getGallery main function in file
 export function getGallery() {
     return __awaiter(this, void 0, void 0, function* () {
-        let token = JSON.parse(localStorage.getItem('tokenData'));
+        let token = JSON.parse(localStorage.getItem('tokenData'))
+        console.log(token)
         let resolve = yield fetch(getUrl(), {
             method: "GET",
             headers: {
@@ -33,7 +34,7 @@ function setPage(num) {
     localStorage.setItem('page', num);
 }
 function getUrl() {
-    return `http://localhost:5000/gallery/page`;
+    return `http://localhost:5000/gallery/page=${getPage()}`;
 }
 function createGallery(galleryObject) {
     clearGallery();
@@ -48,7 +49,7 @@ function clearGallery() {
 function createImg(galleryObject) {
     let divGallery = document.getElementById('gallery');
     console.log(galleryObject);
-    for (let url of galleryObject) {
+    for (let url of galleryObject.objects) {
         let img = document.createElement('img');
         img.src = url;
         divGallery.appendChild(img);
